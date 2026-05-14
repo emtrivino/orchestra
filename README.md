@@ -6,11 +6,11 @@ A complete static website for **Asker Symfoniorkester** in Norwegian Bokmål. Th
 https://emtrivino.github.io/orchestra/
 ```
 
-The build writes the full website to both `dist/` and `docs/`. Use `docs/` for GitHub Pages branch publishing.
+The build writes the full website to both `dist/` and `docs/`. Use `docs/` for GitHub Pages branch publishing. The recommended publishing mode is **Settings → Pages → Deploy from a branch → main → /docs**.
 
-## Publish from GitHub Pages in the browser
+## Publish from GitHub Pages in the browser only
 
-You do not need to run anything locally after this repository is updated. In GitHub:
+You do not need to run anything locally after this repository is updated and merged. In GitHub:
 
 1. Go to the repository **Settings**.
 2. Open **Pages**.

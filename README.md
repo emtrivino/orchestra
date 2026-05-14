@@ -52,6 +52,7 @@ The build output includes:
 - `dist/robots.txt`
 - `dist/sitemap.xml`
 - `dist/.nojekyll`
+- matching fallback files in `docs/` for branch-based GitHub Pages publishing
 - static HTML pages for all routes
 
 ## Preview production build
@@ -78,6 +79,8 @@ To deploy:
 2. GitHub Actions runs `npm ci` and `npm run build`.
 3. The workflow uploads `./dist` as a GitHub Pages artifact.
 4. GitHub Pages deploys the artifact.
+
+Fallback: if the workflow does not appear, go to **Settings → Pages** and choose **Deploy from a branch → main → /docs**. The build mirrors the same generated site into `docs/` for this purpose.
 
 Final public URL:
 

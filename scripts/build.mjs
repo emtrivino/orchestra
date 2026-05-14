@@ -1,4 +1,4 @@
-import { copyFile, mkdir, rm, writeFile } from "node:fs/promises";
+import { copyFile, cp, mkdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { canonicalUrl } from "../src/config.mjs";
 import { pages } from "../src/render.mjs";
@@ -6,6 +6,7 @@ import { pages } from "../src/render.mjs";
 const renderedPages = pages();
 
 await rm("dist", { recursive: true, force: true });
+await rm("docs", { recursive: true, force: true });
 await mkdir("dist", { recursive: true });
 await copyFile("src/styles.css", "dist/styles.css");
 await copyFile("public/favicon.svg", "dist/favicon.svg");
@@ -27,4 +28,10 @@ await writeFile(
     .join("")}\n</urlset>\n`
 );
 
-console.log(`Built ${renderedPages.length} pages to dist/`);
+// GitHub Pages can deploy the `dist` artifact through Actions. We also mirror
+// the exact same generated site to `docs/` so the repository can be published
+// from Settings → Pages → Deploy from a branch → main → /docs if Actions is not
+// visible or not available yet.
+await cp("dist", "docs", { recursive: true });
+
+console.log(`Built ${renderedPages.length} pages to dist/ and docs/`);

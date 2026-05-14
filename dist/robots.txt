@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://emtrivino.github.io/orchestra/sitemap.xml

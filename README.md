@@ -70,7 +70,7 @@ http://localhost:4173/orchestra/
 
 ## Deployment
 
-Deployment is configured in `.github/workflows/deploy.yml`.
+Deployment is configured in `.github/workflows/deploy.yml`. See `GITHUB_PAGES_SETUP.md` for a beginner-friendly GitHub UI checklist if the workflow does not appear in the Actions tab.
 
 To deploy:
 

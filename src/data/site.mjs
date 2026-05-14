@@ -1,5 +1,8 @@
 export const facebookUrl = "https://www.facebook.com/profile.php?id=100062928895060";
 export const ticketUrl = "https://ebillett.no/";
+export const contactEmail = "post@askersymfoniorkester.no";
+export const basePath = "/orchestra";
+export const siteUrl = "https://emtrivino.github.io/orchestra";
 export const nav = [
   ["Konserter", "/konserter/"], ["Sesongen", "/sesongen/"], ["Om oss", "/om-oss/"], ["Musikere", "/musikere/"], ["Bli med", "/bli-med/"], ["Repertoar", "/repertoar/"], ["For medlemmer", "/medlemmer/"], ["Støtt oss", "/stott-oss/"], ["Kontakt", "/kontakt/"]
 ];

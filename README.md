@@ -1,24 +1,47 @@
-# Asker Symfoniorkester – premium orchestra website
+# Asker Symfoniorkester – GitHub Pages-ready website
 
-A complete premium 2026-style website for **Asker Symfoniorkester** in Norwegian Bokmål. The site is built as a dependency-free static cultural website so it can run reliably in this repository without external package downloads. The architecture still follows modern component/content separation: structured data, generated pages, reusable layout sections, responsive CSS, SEO metadata, robots.txt, sitemap, and a local development server.
+A complete static website for **Asker Symfoniorkester** in Norwegian Bokmål. The site is generated with a dependency-free Node.js static generator and is configured to work from the GitHub Pages project URL:
 
-> Note: The original preferred stack was Next.js + Tailwind CSS. Package downloads from npm were blocked in this environment, so the delivered version uses a zero-dependency Node static generator while preserving the requested visual direction, content model, routes, and local commands. It can later be migrated to Next.js/Vercel using the same `src/data/site.mjs` content.
+```text
+https://emtrivino.github.io/orchestra/
+```
 
-## Tech stack
+The build writes the full website to both `dist/` and `docs/`. Use `docs/` for GitHub Pages branch publishing.
 
-- Node.js static site generator
-- Modern semantic HTML
-- Custom responsive CSS inspired by Tailwind utility principles
-- CSS gradients, glass surfaces, texture, and editorial layouts
-- Embedded Facebook Page Plugin section
-- SEO metadata, favicon, robots.txt, sitemap.xml
+## Publish from GitHub Pages in the browser
 
-## Setup
+You do not need to run anything locally after this repository is updated. In GitHub:
 
-Install dependencies (there are no external dependencies, but this verifies the npm project):
+1. Go to the repository **Settings**.
+2. Open **Pages**.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. Set **Branch** to **main**.
+5. Set **Folder** to **/docs**.
+6. Click **Save**.
+7. Open:
+
+```text
+https://emtrivino.github.io/orchestra/
+```
+
+## Local commands for maintainers
+
+Install dependencies (there are no external runtime dependencies, but this verifies the npm project):
 
 ```bash
 npm install
+```
+
+Build the static site into `dist/` and `docs/`:
+
+```bash
+npm run build
+```
+
+Run the lightweight render/SEO lint check:
+
+```bash
+npm run lint
 ```
 
 Run the local development server:
@@ -33,24 +56,12 @@ Open:
 http://localhost:3000
 ```
 
-Build the static site:
-
-```bash
-npm run build
-```
-
-Run the lightweight render/SEO lint check:
-
-```bash
-npm run lint
-```
-
 ## Where to edit content
 
-- `src/data/site.mjs` – navigation, concerts, facts, news, repertoire, musician sections, partner placeholders, Facebook URL, eBillett URL.
-- `src/render.mjs` – page templates and reusable rendering sections.
-- `src/styles.css` – visual identity, responsive layout, typography, cards, hero sections, and mobile behavior.
-- `public/favicon.svg` – placeholder favicon/logo mark.
+- `src/data/site.mjs` – navigation, GitHub Pages base path, site URL, contact email, concerts, facts, news, repertoire, musician sections, partner placeholders, Facebook URL, and eBillett URL.
+- `src/render.mjs` – page templates, reusable rendering sections, localized internal links, and static mailto forms.
+- `src/styles.css` – visual identity, responsive layout, typography, cards, hero sections, forms, and mobile behavior.
+- `public/favicon.svg` – favicon/logo mark.
 
 ## Pages included
 
@@ -67,21 +78,18 @@ npm run lint
 - Aktuelt
 - Kontakt
 
-## Facebook feed
+## Contact forms
 
-The home and news pages include an embedded Facebook Page Plugin for:
+The contact and recruitment forms are static and use a mailto fallback to:
 
 ```text
-https://www.facebook.com/profile.php?id=100062928895060
+post@askersymfoniorkester.no
 ```
-
-If Facebook blocks iframe rendering in a specific browser/session, the section still provides a direct link to the orchestra's Facebook page.
 
 ## Recommended real content to add next
 
 - Real orchestra photos and concert images.
 - Official logo and brand assets.
-- Official contact email addresses.
 - Confirmed concert dates, programmes, venues, and eBillett URLs.
 - Musician names and board/administration roles.
 - Final partner/sponsor logos.

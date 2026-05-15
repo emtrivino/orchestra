@@ -21,11 +21,11 @@ export const facts = [
 ];
 
 export const frontImages = [
-  { src: "/images/orchestra_1.jpg", alt: "Asker Symfoniorkester på scenen under konsert" },
-  { src: "/images/orchestra_playing.jpg", alt: "Musikere i Asker Symfoniorkester spiller sammen" },
-  { src: "/images/orchestra_with_abba.jpg", alt: "Asker Symfoniorkester med vokalister og fullt ensemble" },
-  { src: "/images/orchestra_piano.jpg", alt: "Pianist og orkester i samspill" },
-  { src: "/images/orchestra_and_choird.jpg", alt: "Orkester og kor deler konsertscenen" },
+  { src: "/images/orchestra_1.jpg", width: 3364, height: 1246, alt: "Asker Symfoniorkester på scenen under konsert" },
+  { src: "/images/orchestra_playing.jpg", width: 2048, height: 1152, alt: "Musikere i Asker Symfoniorkester spiller sammen" },
+  { src: "/images/orchestra_with_abba.jpg", width: 2048, height: 1365, alt: "Asker Symfoniorkester med vokalister og fullt ensemble" },
+  { src: "/images/orchestra_piano.jpg", width: 2015, height: 1134, alt: "Pianist og orkester i samspill" },
+  { src: "/images/orchestra_and_choird.jpg", width: 1600, height: 1065, alt: "Orkester og kor deler konsertscenen" },
 ];
 
 export const videos = [

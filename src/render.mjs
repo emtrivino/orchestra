@@ -107,6 +107,10 @@ function simplePage(title, kicker, description, content) {
   return shell(title, description, `${subHero(kicker, title, description)}<section class="container section">${content}</section>`);
 }
 
+function imageTag(image, attrs = "") {
+  return `<img src="${asset(image.src)}" width="${image.width}" height="${image.height}" alt="${esc(image.alt)}" decoding="async"${attrs ? ` ${attrs}` : ""}>`;
+}
+
 function youtubeEmbed(url) {
   const parsed = new URL(url);
   const id = parsed.searchParams.get("v");
@@ -137,7 +141,8 @@ function home() {
           <div class="actions"><a class="button" href="${next.ticketUrl ?? ticketUrl}" rel="noopener">Kjøp billetter</a><a class="button ghost" href="#opplev">Se mer</a></div>
         </div>
         <div class="hero-media" aria-label="Visuelle glimt fra orkesteret">
-          ${frontImages.slice(0, 3).map((image, index) => `<figure class="hero-image hero-image-${index + 1}"><img src="${asset(image.src)}" alt="${esc(image.alt)}"></figure>`).join("")}
+          <figure class="hero-backdrop">${imageTag(frontImages[1], "fetchpriority=\"high\"")}</figure>
+          ${frontImages.slice(0, 3).map((image, index) => `<figure class="hero-image hero-image-${index + 1}">${imageTag(image, index === 0 ? "fetchpriority=\"high\"" : "loading=\"lazy\"")}</figure>`).join("")}
         </div>
       </div>
     </section>
@@ -146,7 +151,7 @@ function home() {
       <div class="micro-about"><p class="kicker">Kort fortalt</p><p>Et orkester med røtter i Asker siden 1972 — rom for store verk, nye samarbeid og musikere som vil utvikle seg sammen.</p><div class="fact-grid mini">${facts.map(([value, label]) => `<div><strong>${value}</strong><span>${label}</span></div>`).join("")}</div></div>
     </section>
     <section class="container section media-gallery" aria-label="Bilder fra Asker Symfoniorkester">
-      ${frontImages.map((image, index) => `<figure class="gallery-item gallery-item-${index + 1}"><img src="${asset(image.src)}" alt="${esc(image.alt)}" loading="lazy"></figure>`).join("")}
+      ${frontImages.map((image, index) => `<figure class="gallery-item gallery-item-${index + 1}">${imageTag(image, "loading=\"lazy\"")}</figure>`).join("")}
     </section>
     <section class="container section video-section">
       ${sectionIntro("Video", "Se orkesteret spille", "Utvalgte opptak fra YouTube er lagt rett på forsiden, responsivt og uten ekstra distraksjoner.")}
@@ -154,7 +159,7 @@ function home() {
     </section>
     <section class="container section flow-section">
       <div>${sectionIntro("Sesongen", "Konserter og oppdateringer", "Alt det viktigste samlet nedover siden — tydelig flyt, god lesbarhet og rask tilgang på mobil.")}${concerts.slice(1, 3).map((c) => concertCard(c)).join("")}</div>
-      <aside class="social-card"><img src="${asset(frontImages[3].src)}" alt="${esc(frontImages[3].alt)}" loading="lazy"><h2>Følg orkesteret</h2><p>Hold deg oppdatert på konserter, bilder og korte glimt fra prøver og prosjekter.</p><a class="text-link" href="${facebookUrl}" rel="noopener">Følg oss på Facebook</a></aside>
+      <aside class="social-card">${imageTag(frontImages[3], "loading=\"lazy\"")}<h2>Følg orkesteret</h2><p>Hold deg oppdatert på konserter, bilder og korte glimt fra prøver og prosjekter.</p><a class="text-link" href="${facebookUrl}" rel="noopener">Følg oss på Facebook</a></aside>
     </section>
     <section class="container section callout-row">
       <article class="feature-card"><p class="kicker">Bli med</p><h2>Spill med oss.</h2><p>Vi ønsker nye strykere, blåsere og slagverkere velkommen til et varmt og ambisiøst miljø.</p>${link("/bli-med/", "Send melding", "text-link")}</article>

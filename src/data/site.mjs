@@ -1,27 +1,34 @@
 export const facebookUrl = "https://www.facebook.com/profile.php?id=100062928895060";
-export const ticketUrl = "https://ebillett.no/";
+export const ticketUrl = "https://checkout.ebillett.no/359/events/19/purchase/setup";
 export const contactEmail = "post@askersymfoniorkester.no";
 export const basePath = "/orchestra";
 export const siteUrl = "https://emtrivino.github.io/orchestra";
 
 export const nav = [
   ["Konserter", "/konserter/"],
-  ["Sesongen", "/sesongen/"],
   ["Om oss", "/om-oss/"],
-  ["Musikere", "/musikere/"],
   ["Bli med", "/bli-med/"],
-  ["Repertoar", "/repertoar/"],
-  ["For medlemmer", "/medlemmer/"],
-  ["Støtt oss", "/stott-oss/"],
   ["Aktuelt", "/aktuelt/"],
   ["Kontakt", "/kontakt/"],
 ];
 
 export const facts = [
   ["1972", "stiftet"],
-  ["ca. 35", "musikere"],
+  ["35+", "musikere"],
   ["5", "konserter i året"],
   ["Asker", "lokalt forankret"],
+];
+
+export const frontImages = [
+  { src: "/images/aso-stage.svg", alt: "Abstrakt sceneillustrasjon med varmt konsertlys" },
+  { src: "/images/aso-strings.svg", alt: "Minimal illustrasjon inspirert av strykeinstrumenter" },
+  { src: "/images/aso-motion.svg", alt: "Abstrakt bevegelse som minner om dirigentens slag" },
+];
+
+export const videos = [
+  ["Konsertopptak I", "https://www.youtube.com/watch?v=H15EEgzzeFc"],
+  ["Konsertopptak II", "https://www.youtube.com/watch?v=3dWpDRrjYIo"],
+  ["Konsertopptak III", "https://www.youtube.com/watch?v=G1MlTpqn-3I"],
 ];
 
 export const concerts = [
@@ -33,9 +40,10 @@ export const concerts = [
     venue: "Østenstad kirke",
     type: "Sommerkonsert",
     conductor: "Carl Nilsen",
+    ticketUrl,
     soloists: ["Aurora Sommerfeldt Floden, bratsj", "Eline Øverli Waaler, fløyte", "Linnea Line, piano", "Anja Møgedal Skjellestad, saxofon"],
     programme: ["Edvard Grieg: Peer Gynt Suite nr. 1 og 2", "Wolfgang Amadeus Mozart: Andante for fløyte og orkester", "Francis Poulenc: Klaverkonsert, 1. sats", "Kjell Marcussen: Pavane for bratsj og orkester", "Gabriel Pierné: Canzonetta for saxofon og orkester"],
-    desc: "En lys sommerkonsert der unge solister fra Asker kulturskole møter orkesterets varme symfoniske klang.",
+    desc: "Unge solister fra Asker kulturskole møter orkesteret i en lys konsert med Grieg, Mozart, Poulenc, Marcussen og Pierné.",
     supporters: ["NASOL", "Sparebankstiftelsen DNB"],
   },
   {
@@ -77,9 +85,9 @@ export const concerts = [
 ];
 
 export const news = [
-  ["Sommerkonsert i Østenstad kirke", "7. juni 2026", "Unge solister fra Asker kulturskole møter orkesteret i et sommerlig program."],
-  ["Vi søker nye musikere", "Løpende opptak", "Spiller du stryk, blås eller slagverk på godt amatørnivå? Ta kontakt."],
-  ["Samarbeid med Asker kulturskole", "Sesongen 2026/27", "Vi skaper konsertarenaer der unge musikere får møte et fullt symfoniorkester."],
+  ["Billetter til sommerkonserten", "7. juni 2026", "Billettsalget er åpnet til konserten i Østenstad kirke med unge solister fra Asker kulturskole.", ticketUrl],
+  ["Følg orkesteret på Facebook", "Løpende", "Se oppdateringer, bilder og små glimt fra prøver, konserter og lokalt musikkliv.", facebookUrl],
+  ["Vi søker nye musikere", "Løpende opptak", "Spiller du stryk, blås eller slagverk på godt amatørnivå? Ta kontakt med oss.", "/bli-med/"],
 ];
 
 export const repertoire = ["Grieg", "Mozart", "Poulenc", "Sibelius", "Beethoven", "Tsjajkovskij", "Nordiske komponister", "Samtidsmusikk"];

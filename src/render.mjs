@@ -1,9 +1,9 @@
-import { basePath, concerts, contactEmail, facebookUrl, facts, frontImages, nav, news, partners, repertoire, sections, siteUrl, ticketUrl, videos } from "./data/site.mjs";
+import { basePath, concerts, contactEmail, facebookUrl, facts, frontImages, imageBaseUrl, nav, news, partners, repertoire, sections, siteUrl, ticketUrl, videos } from "./data/site.mjs";
 
 const esc = (value) => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 const sitePath = (path) => `${basePath}${path}`;
 const href = (path) => (path.startsWith("/") ? sitePath(path) : path);
-const asset = (path) => sitePath(path);
+const asset = (path) => (path.startsWith("/images/orchestra") ? `${imageBaseUrl}${path}` : sitePath(path));
 const fmt = (date, opts = { weekday: "long", day: "numeric", month: "long", year: "numeric" }) => new Intl.DateTimeFormat("nb-NO", opts).format(new Date(date));
 const pageTitle = (title) => `${title} | Asker Symfoniorkester`;
 const mailAction = `mailto:${contactEmail}`;
@@ -107,8 +107,22 @@ function simplePage(title, kicker, description, content) {
   return shell(title, description, `${subHero(kicker, title, description)}<section class="container section">${content}</section>`);
 }
 
+function youtubeEmbed(url) {
+  const parsed = new URL(url);
+  const id = parsed.searchParams.get("v");
+  const start = parsed.searchParams.get("t")?.replace("s", "");
+  return `https://www.youtube-nocookie.com/embed/${id}${start ? `?start=${Number.parseInt(start, 10) || 0}` : ""}`;
+}
+
 function videoLinks() {
-  return `<div class="video-links">${videos.map(([label, url]) => `<a href="${url}" rel="noopener"><span>${label}</span><strong>YouTube</strong></a>`).join("")}</div>`;
+  return `<div class="video-grid">${videos
+    .map(
+      ([label, url]) => `<article class="video-card">
+        <iframe src="${youtubeEmbed(url)}" title="${esc(label)} fra Asker Symfoniorkester" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div><span>${esc(label)}</span><a href="${url}" rel="noopener">Åpne på YouTube</a></div>
+      </article>`,
+    )
+    .join("")}</div>`;
 }
 
 function home() {
@@ -123,7 +137,7 @@ function home() {
           <div class="actions"><a class="button" href="${next.ticketUrl ?? ticketUrl}" rel="noopener">Kjøp billetter</a><a class="button ghost" href="#opplev">Se mer</a></div>
         </div>
         <div class="hero-media" aria-label="Visuelle glimt fra orkesteret">
-          ${frontImages.map((image, index) => `<figure class="hero-image hero-image-${index + 1}"><img src="${asset(image.src)}" alt="${esc(image.alt)}"></figure>`).join("")}
+          ${frontImages.slice(0, 3).map((image, index) => `<figure class="hero-image hero-image-${index + 1}"><img src="${asset(image.src)}" alt="${esc(image.alt)}"></figure>`).join("")}
         </div>
       </div>
     </section>
@@ -131,9 +145,16 @@ function home() {
       <article class="next-card"><p class="kicker">Neste konsert</p><h2>${next.title}</h2><p>${fmt(next.date)} · kl. ${next.time}<br>${next.venue}</p><div class="actions"><a class="button" href="${next.ticketUrl ?? ticketUrl}" rel="noopener">Billetter hos eBillett</a>${link(`/konserter/${next.slug}/`, "Detaljer", "button ghost")}</div></article>
       <div class="micro-about"><p class="kicker">Kort fortalt</p><p>Et orkester med røtter i Asker siden 1972 — rom for store verk, nye samarbeid og musikere som vil utvikle seg sammen.</p><div class="fact-grid mini">${facts.map(([value, label]) => `<div><strong>${value}</strong><span>${label}</span></div>`).join("")}</div></div>
     </section>
+    <section class="container section media-gallery" aria-label="Bilder fra Asker Symfoniorkester">
+      ${frontImages.map((image, index) => `<figure class="gallery-item gallery-item-${index + 1}"><img src="${asset(image.src)}" alt="${esc(image.alt)}" loading="lazy"></figure>`).join("")}
+    </section>
+    <section class="container section video-section">
+      ${sectionIntro("Video", "Se orkesteret spille", "Utvalgte opptak fra YouTube er lagt rett på forsiden, responsivt og uten ekstra distraksjoner.")}
+      ${videoLinks()}
+    </section>
     <section class="container section flow-section">
-      <div>${sectionIntro("Sesongen", "Konserter, videoer og oppdateringer", "Alt det viktigste samlet nedover siden — færre faner, tydeligere flyt og rask tilgang på mobil.")}${concerts.slice(1, 3).map((c) => concertCard(c)).join("")}</div>
-      <aside class="social-card"><img src="${asset(frontImages[1].src)}" alt="${esc(frontImages[1].alt)}"><h2>Se og følg orkesteret</h2><p>Videoer fra YouTube og løpende aktivitet fra Facebook er samlet her, uten tunge integrasjoner.</p>${videoLinks()}<a class="text-link" href="${facebookUrl}" rel="noopener">Følg oss på Facebook</a></aside>
+      <div>${sectionIntro("Sesongen", "Konserter og oppdateringer", "Alt det viktigste samlet nedover siden — tydelig flyt, god lesbarhet og rask tilgang på mobil.")}${concerts.slice(1, 3).map((c) => concertCard(c)).join("")}</div>
+      <aside class="social-card"><img src="${asset(frontImages[3].src)}" alt="${esc(frontImages[3].alt)}" loading="lazy"><h2>Følg orkesteret</h2><p>Hold deg oppdatert på konserter, bilder og korte glimt fra prøver og prosjekter.</p><a class="text-link" href="${facebookUrl}" rel="noopener">Følg oss på Facebook</a></aside>
     </section>
     <section class="container section callout-row">
       <article class="feature-card"><p class="kicker">Bli med</p><h2>Spill med oss.</h2><p>Vi ønsker nye strykere, blåsere og slagverkere velkommen til et varmt og ambisiøst miljø.</p>${link("/bli-med/", "Send melding", "text-link")}</article>

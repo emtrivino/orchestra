@@ -53,29 +53,35 @@ npm run dev
 Open:
 
 ```text
-http://localhost:3000/orchestra/
+http://localhost:3000
 ```
 
 ## Where to edit content
 
-- `src/data/site.mjs` – navigation, GitHub Pages base path, site URL, contact email, the single public concert, hero image metadata, Facebook URL, and eBillett URL.
-- `src/render.mjs` – page templates, reusable rendering sections, localized internal links, and static mailto contact links.
-- `src/styles.css` – clean visual identity, responsive layout, typography, cards, hero section, and mobile behavior.
-- `public/images/` – committed image assets copied into both `dist/images/` and `docs/images/` so GitHub Pages can serve them.
+- `src/data/site.mjs` – navigation, GitHub Pages base path, site URL, contact email, concerts, frontpage image metadata, YouTube links, facts, news, repertoire, musician sections, partners, Facebook URL, and eBillett URL.
+- `src/render.mjs` – page templates, reusable rendering sections, localized internal links, frontpage image/video sections, and static mailto forms.
+- `src/styles.css` – 2026-style minimal visual identity, responsive layout, typography, image motion, cards, hero sections, forms, and mobile behavior.
+- `public/images/` – committed frontpage image assets copied into both `dist/images/` and `docs/images/` so GitHub Pages can serve them.
 - `public/favicon.svg` – favicon/logo mark.
 
 ## Pages included
 
 - Home
 - Konserter
-- Sommerkonsert detail page
+- Concert detail pages
+- Sesongen 2026/27
+- Om orkesteret
+- Musikere
 - Bli med
-- Om oss
+- Repertoar
+- For medlemmer
+- Støtt oss
+- Aktuelt
 - Kontakt
 
-## Contact links
+## Contact forms
 
-The contact and recruitment calls to action are static mailto links to:
+The contact and recruitment forms are static and use a mailto fallback to:
 
 ```text
 post@askersymfoniorkester.no
@@ -83,6 +89,8 @@ post@askersymfoniorkester.no
 
 ## Recommended real content to add next
 
-- Optional replacement of the committed frontpage image with a newer orchestra photo.
+- Optional replacement of the abstract committed frontpage assets with real orchestra photos.
 - Official logo and brand assets.
-- Confirmed updates to the Sommerkonsert programme, soloists, or ticket URL.
+- Confirmed future concert dates, programmes, venues, and eBillett URLs.
+- Musician names and board/administration roles.
+- Final partner/sponsor logos.

@@ -3,6 +3,7 @@ export const ticketUrl = "https://checkout.ebillett.no/359/events/19/purchase/se
 export const contactEmail = "post@askersymfoniorkester.no";
 export const basePath = "/orchestra";
 export const siteUrl = "https://emtrivino.github.io/orchestra";
+export const imageBaseUrl = "https://raw.githubusercontent.com/emtrivino/orchestra/main/public";
 
 export const nav = [
   ["Konserter", "/konserter/"],
@@ -20,15 +21,18 @@ export const facts = [
 ];
 
 export const frontImages = [
-  { src: "/images/aso-stage.svg", alt: "Abstrakt sceneillustrasjon med varmt konsertlys" },
-  { src: "/images/aso-strings.svg", alt: "Minimal illustrasjon inspirert av strykeinstrumenter" },
-  { src: "/images/aso-motion.svg", alt: "Abstrakt bevegelse som minner om dirigentens slag" },
+  { src: "/images/orchestra_1.jpg", alt: "Asker Symfoniorkester på scenen under konsert" },
+  { src: "/images/orchestra_playing.jpg", alt: "Musikere i Asker Symfoniorkester spiller sammen" },
+  { src: "/images/orchestra_with_abba.jpg", alt: "Asker Symfoniorkester med vokalister og fullt ensemble" },
+  { src: "/images/orchestra_piano.jpg", alt: "Pianist og orkester i samspill" },
+  { src: "/images/orchestra_and_choird.jpg", alt: "Orkester og kor deler konsertscenen" },
 ];
 
 export const videos = [
   ["Konsertopptak I", "https://www.youtube.com/watch?v=H15EEgzzeFc"],
   ["Konsertopptak II", "https://www.youtube.com/watch?v=3dWpDRrjYIo"],
-  ["Konsertopptak III", "https://www.youtube.com/watch?v=G1MlTpqn-3I"],
+  ["Konsertopptak III", "https://www.youtube.com/watch?v=6eLTL9Wy9vw&t=24s"],
+  ["Konsertopptak IV", "https://www.youtube.com/watch?v=mNQeoPL2SS4"],
 ];
 
 export const concerts = [

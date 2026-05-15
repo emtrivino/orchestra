@@ -1,4 +1,4 @@
-import { copyFile, mkdir, rm, writeFile } from "node:fs/promises";
+import { cp, copyFile, mkdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { pages } from "../src/render.mjs";
 import { siteUrl } from "../src/data/site.mjs";
@@ -11,6 +11,7 @@ for (const outputDir of outputDirs) {
   await mkdir(outputDir, { recursive: true });
   await copyFile("src/styles.css", join(outputDir, "styles.css"));
   await copyFile("public/favicon.svg", join(outputDir, "favicon.svg"));
+  await cp("public/images", join(outputDir, "images"), { recursive: true });
 
   for (const [route, html] of renderedPages) {
     const file = route === "/" ? join(outputDir, "index.html") : join(outputDir, route, "index.html");

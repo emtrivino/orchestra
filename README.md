@@ -6,11 +6,11 @@ A complete static website for **Asker Symfoniorkester** in Norwegian Bokmål. Th
 https://emtrivino.github.io/orchestra/
 ```
 
-The build writes the full website to both `dist/` and `docs/`. Use `docs/` for GitHub Pages branch publishing.
+The build writes the full website to both `dist/` and `docs/`. Use `docs/` for GitHub Pages branch publishing. The recommended publishing mode is **Settings → Pages → Deploy from a branch → main → /docs**.
 
-## Publish from GitHub Pages in the browser
+## Publish from GitHub Pages in the browser only
 
-You do not need to run anything locally after this repository is updated. In GitHub:
+You do not need to run anything locally after this repository is updated and merged. In GitHub:
 
 1. Go to the repository **Settings**.
 2. Open **Pages**.
@@ -58,9 +58,10 @@ http://localhost:3000
 
 ## Where to edit content
 
-- `src/data/site.mjs` – navigation, GitHub Pages base path, site URL, contact email, concerts, facts, news, repertoire, musician sections, partner placeholders, Facebook URL, and eBillett URL.
-- `src/render.mjs` – page templates, reusable rendering sections, localized internal links, and static mailto forms.
-- `src/styles.css` – visual identity, responsive layout, typography, cards, hero sections, forms, and mobile behavior.
+- `src/data/site.mjs` – navigation, GitHub Pages base path, site URL, contact email, concerts, frontpage image metadata, YouTube links, facts, news, repertoire, musician sections, partners, Facebook URL, and eBillett URL.
+- `src/render.mjs` – page templates, reusable rendering sections, localized internal links, frontpage image/video sections, and static mailto forms.
+- `src/styles.css` – 2026-style minimal visual identity, responsive layout, typography, image motion, cards, hero sections, forms, and mobile behavior.
+- `public/images/` – committed frontpage image assets copied into both `dist/images/` and `docs/images/` so GitHub Pages can serve them.
 - `public/favicon.svg` – favicon/logo mark.
 
 ## Pages included
@@ -88,8 +89,8 @@ post@askersymfoniorkester.no
 
 ## Recommended real content to add next
 
-- Real orchestra photos and concert images.
+- Optional replacement of the abstract committed frontpage assets with real orchestra photos.
 - Official logo and brand assets.
-- Confirmed concert dates, programmes, venues, and eBillett URLs.
+- Confirmed future concert dates, programmes, venues, and eBillett URLs.
 - Musician names and board/administration roles.
 - Final partner/sponsor logos.

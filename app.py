@@ -3,6 +3,17 @@ from pathlib import Path
 from urllib.parse import unquote, urlparse
 
 from views import concert_page, contact_page, home_page, join_page, not_found_page
+from views import (
+    about_page,
+    concert_detail_page,
+    concerts_page,
+    contact_page,
+    home_page,
+    join_page,
+    news_page,
+    not_found_page,
+    repertoire_page,
+)
 
 HOST = "127.0.0.1"
 PORT = 5000
@@ -17,6 +28,7 @@ class OrchestraHandler(SimpleHTTPRequestHandler):
             relative_path = unquote(parsed_path.removeprefix("/static/"))
             requested_path = (STATIC_DIR / relative_path).resolve()
             if requested_path == STATIC_DIR or STATIC_DIR in requested_path.parents:
+            if STATIC_DIR in requested_path.parents or requested_path == STATIC_DIR:
                 return str(requested_path)
             return str(STATIC_DIR / "missing-file")
         return str(BASE_DIR)

@@ -1,55 +1,53 @@
-# Asker Symfoniorkester – Python website
+# Asker Symfoniorkester – static GitHub Pages site
 
-Sitio web simple para **Asker Symfoniorkester**, ahora hecho en Python. No usa Node, Django ni Flask porque la página es pequeña y así queda más fácil de abrir, entender y ejecutar desde PyCharm sin instalar dependencias externas.
+This repository contains a lightweight, fully static website for **Asker Symfoniorkester**. It is designed to work directly on GitHub Pages without Python, Flask, Node, npm, or any build step.
 
-## Estructura del proyecto
+The current site focuses on **Sommerkonsert 2026** and the essential sections:
 
-```text
-app.py                 # Servidor local y rutas principales
-views.py               # HTML generado por Python para cada página
-data.py                # Textos, conciertos, contacto y listas editables
-requirements.txt       # No requiere paquetes externos
-static/
-  styles.css           # Diseño blanco y negro
-  favicon.svg          # Ícono del sitio
-  images/              # Fotos usadas por la página
-```
+- Home
+- Sommerkonsert 2026
+- Join the orchestra / Bli med
+- Contact / Kontakt
 
-## Cómo correrlo en PyCharm
-
-1. Abre esta carpeta como proyecto en PyCharm.
-2. Crea o selecciona un intérprete de Python 3.10+.
-3. Ejecuta `app.py`.
-4. Abre la URL que muestra el servidor, normalmente:
+## Project structure
 
 ```text
-http://127.0.0.1:5000
+docs/
+  index.html              # Static website entry point used by GitHub Pages
+  static/
+    styles.css            # Site styling
+    favicon.svg           # Site icon
+    images/               # Optimized, essential image assets
 ```
 
-## Cómo correrlo por terminal
+## GitHub Pages setup
 
-```bash
-python app.py
+To publish the website at `https://emtrivino.github.io/orchestra/`, configure GitHub Pages like this:
+
+1. Go to the repository on GitHub.
+2. Open **Settings**.
+3. Open **Pages**.
+4. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+5. Set **Branch** to **main**.
+6. Set **Folder** to **/docs**.
+7. Click **Save**.
+
+After GitHub Pages finishes deploying, the website should be available at:
+
+```text
+https://emtrivino.github.io/orchestra/
 ```
 
-Si quieres usar un entorno virtual, también funciona:
+## Local preview
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-python app.py
+No server is required. You can open the site directly in a browser:
+
+```text
+docs/index.html
 ```
 
-## Cómo editar el contenido
+Because all asset paths are relative, the same files work both when opened locally and when served under the GitHub Pages project path `/orchestra/`.
 
-La mayoría de los cambios se hacen en `data.py`:
+## Editing content
 
-- `CONCERTS`: concierto principal, programa, solistas y link de boletos.
-- `ABOUT_SECTIONS`: textos de la página “Om oss”.
-- `BOARD`: contactos del comité.
-- `NEWS`: avisos de actualidad.
-- `FRONT_IMAGES`: imágenes de la portada.
-
-## Diseño
-
-La página usa tonos blancos y negros, con blanco como color predominante. El CSS está concentrado en `static/styles.css` para que sea fácil de modificar.
+Edit the website directly in `docs/index.html`. Edit visual styles in `docs/static/styles.css`. Keep links and assets relative unless linking to an external website.

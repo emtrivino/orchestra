@@ -8,30 +8,67 @@
   <link rel="icon" href="static/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="static/styles.css">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Hopp til innhold</a>
 
   <header class="site-header">
-    <nav class="nav container" aria-label="Hovedmeny">
-      <a class="brand" href="index.html" aria-label="Asker Symfoniorkester hjem">Asker Symfoniorkester</a>
+    <nav class="container nav" aria-label="Hovednavigasjon">
+      <a class="brand" href="/orchestra/" aria-label="Asker Symfoniorkester hjem">
+        <span class="brand-mark">♪</span>
+        <span>Asker Symfoniorkester</span>
+      </a>
+
       <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#sommerkonsert">Sommerkonsert 2026</a>
-        <a href="#bli-med">Bli med</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="/orchestra/konserter/">Konserter</a>
+        <a href="/orchestra/om-oss/">Om oss</a>
+        <a href="/orchestra/bli-med/">Bli med</a>
+        <a href="/orchestra/aktuelt/">Aktuelt</a>
+        <a href="/orchestra/kontakt/">Kontakt</a>
       </div>
     </nav>
   </header>
 
-  <main id="main">
-    <section class="hero container" id="home" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <p class="eyebrow">Asker · siden 1972</p>
-        <h1 id="hero-title">Sommerkonsert 2026</h1>
-        <p class="lead">Asker Symfoniorkester inviterer til en varm og klassisk sommerkveld med solister fra Asker kulturskole.</p>
-        <div class="hero-actions" aria-label="Viktige lenker">
-          <a class="button" href="https://checkout.ebillett.no/359/events/19/purchase/setup">Kjøp billetter</a>
-          <a class="button button-secondary" href="#kontakt">Kontakt oss</a>
+  <main>
+    <section class="home-hero immersive">
+      <div class="container hero-grid modern-hero">
+        <div class="hero-copy-block">
+          <p class="kicker">Asker • symfonisk fellesskap</p>
+          <h1>Musikk som puster med byen.</h1>
+          <p class="hero-copy">
+            Asker Symfoniorkester samler sterke amatørmusikere, unge solister og publikum rundt levende klassiske konsertopplevelser.
+          </p>
+
+          <div class="actions">
+            <a class="button" href="https://checkout.ebillett.no/359/events/19/purchase/setup" rel="noopener noreferrer">Kjøp billetter</a>
+            <a class="button ghost" href="#opplev">Se mer</a>
+          </div>
+        </div>
+
+        <div class="hero-media" aria-label="Visuelle glimt fra orkesteret">
+          <figure class="hero-image hero-image-1">
+            <img
+              src="/orchestra/images/orchestra_1.jpg"
+              data-public="/orchestra/public/images/orchestra_1.jpg"
+              data-raw="https://raw.githubusercontent.com/emtrivino/orchestra/codex/update-website-design-with-orchestra-images/public/images/orchestra_1.jpg"
+              alt="Asker Symfoniorkester på scenen under konsert">
+          </figure>
+
+          <figure class="hero-image hero-image-2">
+            <img
+              src="/orchestra/images/orchestra_playing.jpg"
+              data-public="/orchestra/public/images/orchestra_playing.jpg"
+              data-raw="https://raw.githubusercontent.com/emtrivino/orchestra/codex/update-website-design-with-orchestra-images/public/images/orchestra_playing.jpg"
+              alt="Musikere i Asker Symfoniorkester spiller sammen">
+          </figure>
+
+          <figure class="hero-image hero-image-3">
+            <img
+              src="/orchestra/images/orchestra_with_abba.jpg"
+              data-public="/orchestra/public/images/orchestra_with_abba.jpg"
+              data-raw="https://raw.githubusercontent.com/emtrivino/orchestra/codex/update-website-design-with-orchestra-images/public/images/orchestra_with_abba.jpg"
+              alt="Asker Symfoniorkester med vokalister og fullt ensemble">
+          </figure>
         </div>
       </div>
       <figure class="hero-image">
@@ -39,86 +76,265 @@
       </figure>
     </section>
 
-    <section class="section section-muted" id="sommerkonsert" aria-labelledby="concert-title">
-      <div class="container section-grid">
-        <div>
-          <p class="eyebrow">Neste konsert</p>
-          <h2 id="concert-title">Sommerkonsert med solister fra Asker kulturskole</h2>
-          <p>Unge solister møter orkesteret i Østenstad kirke. Programmet samler norsk romantikk, klassiske favoritter og lyriske soloverk.</p>
-          <ul class="details-list" aria-label="Konsertdetaljer">
-            <li><strong>Dato:</strong> 7. juni 2026</li>
-            <li><strong>Tid:</strong> kl. 19.00</li>
-            <li><strong>Sted:</strong> Østenstad kirke</li>
-            <li><strong>Dirigent:</strong> Carl Nilsen</li>
-          </ul>
+    <section id="opplev" class="container section editorial-strip">
+      <article class="next-card">
+        <p class="kicker">Neste konsert</p>
+        <h2>Sommerkonsert med solister fra Asker kulturskole</h2>
+        <p>søndag 7. juni 2026 · kl. 19.00<br>Østenstad kirke</p>
+
+        <div class="actions">
+          <a class="button" href="https://checkout.ebillett.no/359/events/19/purchase/setup" rel="noopener noreferrer">Billetter hos eBillett</a>
+          <a class="button ghost" href="/orchestra/konserter/sommerkonsert-asker-kulturskole/">Detaljer</a>
         </div>
-        <aside class="card" aria-labelledby="tickets-title">
-          <h3 id="tickets-title">Billetter</h3>
-          <p>Sikre deg plass til sommerkonserten. Billettsalget håndteres av eBillett.</p>
-          <a class="button button-full" href="https://checkout.ebillett.no/359/events/19/purchase/setup">Gå til billettkjøp</a>
-        </aside>
+      </article>
+
+      <div class="micro-about">
+        <p class="kicker">Kort fortalt</p>
+        <p>Et orkester med røtter i Asker siden 1972 — rom for store verk, nye samarbeid og musikere som vil utvikle seg sammen.</p>
+
+        <div class="fact-grid mini">
+          <div><strong>1972</strong><span>stiftet</span></div>
+          <div><strong>35+</strong><span>musikere</span></div>
+          <div><strong>5</strong><span>konserter i året</span></div>
+          <div><strong>Asker</strong><span>lokalt forankret</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="section container" aria-labelledby="program-title">
-      <div class="section-heading">
-        <p class="eyebrow">Program og solister</p>
-        <h2 id="program-title">Musikk for en lys sommerkveld</h2>
+    <section class="container section media-gallery" aria-label="Bilder fra Asker Symfoniorkester">
+      <figure class="gallery-item gallery-item-1">
+        <img
+          src="/orchestra/images/orchestra_1.jpg"
+          data-public="/orchestra/public/images/orchestra_1.jpg"
+          data-raw="https://raw.githubusercontent.com/emtrivino/orchestra/codex/update-website-design-with-orchestra-images/public/images/orchestra_1.jpg"
+          alt="Asker Symfoniorkester på scenen under konsert"
+          loading="lazy">
+      </figure>
+
+      <figure class="gallery-item gallery-item-2">
+        <img
+          src="/orchestra/images/orchestra_playing.jpg"
+          data-public="/orchestra/public/images/orchestra_playing.jpg"
+          data-raw="https://raw.githubusercontent.com/emtrivino/orchestra/codex/update-website-design-with-orchestra-images/public/images/orchestra_playing.jpg"
+          alt="Musikere i Asker Symfoniorkester spiller sammen"
+          loading="lazy">
+      </figure>
+
+      <figure class="gallery-item gallery-item-3">
+        <img
+          src="/orchestra/images/orchestra_with_abba.jpg"
+          data-public="/orchestra/public/images/orchestra_with_abba.jpg"
+          data-raw="https://raw.githubusercontent.com/emtrivino/orchestra/codex/update-website-design-with-orchestra-images/public/images/orchestra_with_abba.jpg"
+          alt="Asker Symfoniorkester med vokalister og fullt ensemble"
+          loading="lazy">
+      </figure>
+
+      <figure class="gallery-item gallery-item-4">
+        <img
+          src="/orchestra/images/orchestra_piano.jpg"
+          data-public="/orchestra/public/images/orchestra_piano.jpg"
+          data-raw="https://raw.githubusercontent.com/emtrivino/orchestra/codex/update-website-design-with-orchestra-images/public/images/orchestra_piano.jpg"
+          alt="Pianist og orkester i samspill"
+          loading="lazy">
+      </figure>
+
+      <figure class="gallery-item gallery-item-5">
+        <img
+          src="/orchestra/images/orchestra_and_choird.jpg"
+          data-public="/orchestra/public/images/orchestra_and_choird.jpg"
+          data-raw="https://raw.githubusercontent.com/emtrivino/orchestra/codex/update-website-design-with-orchestra-images/public/images/orchestra_and_choird.jpg"
+          alt="Orkester og kor deler konsertscenen"
+          loading="lazy">
+      </figure>
+    </section>
+
+    <section class="container section video-section">
+      <div class="section-intro">
+        <p class="kicker">Video</p>
+        <h2>Se orkesteret spille</h2>
+        <p>Utvalgte opptak fra YouTube er lagt rett på forsiden, responsivt og uten ekstra distraksjoner.</p>
       </div>
-      <div class="two-column">
-        <article class="card">
-          <h3>Program</h3>
-          <ul class="clean-list">
-            <li>Edvard Grieg: Peer Gynt Suite nr. 1 og 2</li>
-            <li>Wolfgang Amadeus Mozart: Andante for fløyte og orkester</li>
-            <li>Francis Poulenc: Klaverkonsert, 1. sats</li>
-            <li>Kjell Marcussen: Pavane for bratsj og orkester</li>
-            <li>Gabriel Pierné: Canzonetta for saxofon og orkester</li>
-          </ul>
+
+      <div class="video-grid">
+        <article class="video-card">
+          <iframe src="https://www.youtube-nocookie.com/embed/H15EEgzzeFc" title="Konsertopptak I fra Asker Symfoniorkester" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div>
+            <span>Konsertopptak I</span>
+            <a href="https://www.youtube.com/watch?v=H15EEgzzeFc" rel="noopener noreferrer">Åpne på YouTube</a>
+          </div>
         </article>
-        <article class="card">
-          <h3>Solister</h3>
-          <ul class="clean-list">
-            <li>Aurora Sommerfeldt Floden, bratsj</li>
-            <li>Eline Øverli Waaler, fløyte</li>
-            <li>Linnea Line, piano</li>
-            <li>Anja Møgedal Skjellestad, saxofon</li>
-          </ul>
+
+        <article class="video-card">
+          <iframe src="https://www.youtube-nocookie.com/embed/3dWpDRrjYIo" title="Konsertopptak II fra Asker Symfoniorkester" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div>
+            <span>Konsertopptak II</span>
+            <a href="https://www.youtube.com/watch?v=3dWpDRrjYIo" rel="noopener noreferrer">Åpne på YouTube</a>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <iframe src="https://www.youtube-nocookie.com/embed/6eLTL9Wy9vw?start=24" title="Konsertopptak III fra Asker Symfoniorkester" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div>
+            <span>Konsertopptak III</span>
+            <a href="https://www.youtube.com/watch?v=6eLTL9Wy9vw&t=24s" rel="noopener noreferrer">Åpne på YouTube</a>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <iframe src="https://www.youtube-nocookie.com/embed/mNQeoPL2SS4" title="Konsertopptak IV fra Asker Symfoniorkester" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div>
+            <span>Konsertopptak IV</span>
+            <a href="https://www.youtube.com/watch?v=mNQeoPL2SS4" rel="noopener noreferrer">Åpne på YouTube</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section section-dark" id="bli-med" aria-labelledby="join-title">
-      <div class="container join-grid">
-        <div>
-          <p class="eyebrow">Bli med</p>
-          <h2 id="join-title">Vil du spille med oss?</h2>
-          <p>Vi ønsker nye musikere på godt amatørnivå velkommen. Stryk, treblås, messing og slagverk kan ta kontakt for en uformell prat.</p>
-          <p>Orkesteret øver tirsdager kl. 19.00–21.45 på Borgen ungdomsskole.</p>
-          <a class="button button-light" href="mailto:leder@asym.no?subject=Jeg%20vil%20bli%20med%20i%20Asker%20Symfoniorkester">Send interesse</a>
+    <section class="container section flow-section">
+      <div>
+        <div class="section-intro">
+          <p class="kicker">Sesongen</p>
+          <h2>Konserter og oppdateringer</h2>
+          <p>Alt det viktigste samlet nedover siden — tydelig flyt, god lesbarhet og rask tilgang på mobil.</p>
         </div>
-        <img src="static/images/orchestra-playing.jpg" alt="Musikere i Asker Symfoniorkester under prøve eller konsert" width="1200" height="800" loading="lazy">
+
+        <article class="event-card">
+          <div class="event-date">
+            <span>25. okt.</span>
+            <small>2026</small>
+          </div>
+
+          <div class="event-content">
+            <p class="kicker">Symfonisk konsert</p>
+            <h3>Høstkonsert</h3>
+            <p>Nordiske farger og klassisk energi i et program for både kjente og nye lyttere.</p>
+
+            <dl class="event-meta">
+              <div><dt>Tid</dt><dd>kl. 18.00</dd></div>
+              <div><dt>Sted</dt><dd>Asker kulturhus</dd></div>
+              <div><dt>Dirigent</dt><dd>Carl Nilsen</dd></div>
+            </dl>
+
+            <div class="actions">
+              <a class="button" href="/orchestra/konserter/hostkonsert-2026/">Les mer</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <div class="event-date">
+            <span>13. des.</span>
+            <small>2026</small>
+          </div>
+
+          <div class="event-content">
+            <p class="kicker">Julekonsert</p>
+            <h3>Julekonsert</h3>
+            <p>En førjulskveld med kjente melodier, orkesterklang og rom for høytidens ro.</p>
+
+            <dl class="event-meta">
+              <div><dt>Tid</dt><dd>kl. 18.00</dd></div>
+              <div><dt>Sted</dt><dd>Asker kirke</dd></div>
+              <div><dt>Dirigent</dt><dd>Carl Nilsen</dd></div>
+            </dl>
+
+            <div class="actions">
+              <a class="button" href="/orchestra/konserter/julekonsert-2026/">Les mer</a>
+            </div>
+          </div>
+        </article>
       </div>
+
+      <aside class="social-card">
+        <img
+          src="/orchestra/images/orchestra_piano.jpg"
+          data-public="/orchestra/public/images/orchestra_piano.jpg"
+          data-raw="https://raw.githubusercontent.com/emtrivino/orchestra/codex/update-website-design-with-orchestra-images/public/images/orchestra_piano.jpg"
+          alt="Pianist og orkester i samspill"
+          loading="lazy">
+
+        <h2>Følg orkesteret</h2>
+        <p>Hold deg oppdatert på konserter, bilder og korte glimt fra prøver og prosjekter.</p>
+        <a class="text-link" href="https://www.facebook.com/profile.php?id=100062928895060" rel="noopener noreferrer">Følg oss på Facebook</a>
+      </aside>
     </section>
 
-    <section class="section container" id="kontakt" aria-labelledby="contact-title">
-      <div class="contact-card">
-        <p class="eyebrow">Kontakt</p>
-        <h2 id="contact-title">Kontakt Asker Symfoniorkester</h2>
-        <p>Har du spørsmål om konserten, medlemskap eller samarbeid? Send oss gjerne en e-post.</p>
-        <div class="contact-actions">
-          <a class="button" href="mailto:leder@asym.no">leder@asym.no</a>
-          <a class="text-link" href="https://www.facebook.com/profile.php?id=100062928895060">Facebook</a>
-        </div>
-      </div>
+    <section class="container section callout-row">
+      <article class="feature-card">
+        <p class="kicker">Bli med</p>
+        <h2>Spill med oss.</h2>
+        <p>Vi ønsker nye strykere, blåsere og slagverkere velkommen til et varmt og ambisiøst miljø.</p>
+        <a class="text-link" href="/orchestra/bli-med/">Send melding</a>
+      </article>
+
+      <article class="feature-card accent-card">
+        <p class="kicker">Støtt oss</p>
+        <h2>Hjelp musikken videre.</h2>
+        <p>Din støtte bidrar til noter, lokaler, solister og konserter for lokalsamfunnet.</p>
+        <a class="text-link" href="/orchestra/stott-oss/">Slik kan du støtte</a>
+      </article>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-content">
-      <p><strong>Asker Symfoniorkester</strong></p>
-      <p>Sommerkonsert 2026 · Østenstad kirke · 7. juni kl. 19.00</p>
+    <div class="container footer-grid">
+      <section>
+        <a class="brand footer-brand" href="/orchestra/">
+          <span class="brand-mark">♪</span>
+          <span>Asker Symfoniorkester</span>
+        </a>
+        <p>Klassisk musikk, fellesskap og spilleglede i Asker siden 1972.</p>
+      </section>
+
+      <section>
+        <h2>Besøk</h2>
+        <p>
+          <a href="/orchestra/konserter/">Konserter</a><br>
+          <a href="/orchestra/sesongen/">Sesongen</a><br>
+          <a href="/orchestra/aktuelt/">Aktuelt</a><br>
+          <a href="/orchestra/repertoar/">Repertoar</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Delta</h2>
+        <p>
+          <a href="/orchestra/bli-med/">Bli med</a><br>
+          <a href="/orchestra/stott-oss/">Støtt oss</a><br>
+          <a href="/orchestra/medlemmer/">For medlemmer</a><br>
+          <a href="/orchestra/musikere/">Musikere</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Kontakt</h2>
+        <p>
+          <a href="mailto:post@askersymfoniorkester.no">post@askersymfoniorkester.no</a><br>
+          <a href="https://www.facebook.com/profile.php?id=100062928895060" rel="noopener noreferrer">Facebook</a><br>
+          Asker, Norge
+        </p>
+      </section>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll("img[data-public][data-raw]").forEach((img) => {
+      let triedPublic = false;
+      let triedRaw = false;
+
+      img.addEventListener("error", () => {
+        if (!triedPublic) {
+          triedPublic = true;
+          img.src = img.dataset.public;
+          return;
+        }
+
+        if (!triedRaw) {
+          triedRaw = true;
+          img.src = img.dataset.raw;
+        }
+      });
+    });
+  </script>
 </body>
 </html>

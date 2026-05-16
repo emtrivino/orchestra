@@ -1,24 +1,27 @@
 from html import escape
 
-from data import ABOUT, BOARD, CONCERT, CONTACT_EMAIL, FACEBOOK_URL, HERO_IMAGE, JOIN_TEXT, NAVIGATION
+from data import ABOUT, BOARD, CONCERT, CONTACT_EMAIL, FACEBOOK_URL, GALLERY_IMAGES, HERO_IMAGE, JOIN_TEXT, NAVIGATION, VIDEOS
 
 
 def e(value):
     return escape(str(value), quote=True)
 
 
+ASSET_PREFIX = "/static/"
+
+
 def static_path(filename):
-    return f"/static/{filename}"
+    return f"{ASSET_PREFIX}{filename}"
 
 
 def nav_html():
     links = "".join(f'<a href="{e(url)}">{e(label)}</a>' for label, url in NAVIGATION)
-    return f'<a class="brand" href="/">Asker Symfoniorkester</a><div class="nav-links">{links}</div>'
+    return f'<a class="brand" href="#orquesta">Asker Symfoniorkester</a><div class="nav-links">{links}</div>'
 
 
 def layout(title, content, preload_image=False):
     return f"""<!doctype html>
-<html lang="no">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,58 +47,92 @@ def page_header(kicker, title, text):
     return f'<section class="page-header container"><p class="kicker">{e(kicker)}</p><h1>{e(title)}</h1><p>{e(text)}</p></section>'
 
 
+def image_carousel():
+    slides = "".join(
+        f'<figure class="carousel-slide slide-{index}"><img src="{static_path(image["src"])}" alt="{e(image["alt"])}"><figcaption>{e(image["alt"])}</figcaption></figure>'
+        for index, image in enumerate(GALLERY_IMAGES, start=1)
+    )
+    dots = "".join(f"<span></span>" for _ in GALLERY_IMAGES)
+    return f'<div class="image-carousel" aria-label="Imágenes de la orquesta">{slides}<div class="carousel-dots">{dots}</div></div>'
+
+
+def videos_section():
+    videos = "".join(
+        f"""<article class="video-card">
+  <iframe src="{e(video['embed'])}" title="{e(video['title'])}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <p>{e(video['title'])}</p>
+</article>"""
+        for video in VIDEOS
+    )
+    return f"""<section id="videos" class="container section-block videos-section">
+  <div class="section-heading">
+    <p class="kicker">Videos</p>
+    <h2>Presentaciones</h2>
+    <p>Un vistazo liviano a la orquesta en acción, sin agregar otro botón al menú.</p>
+  </div>
+  <div class="video-grid">{videos}</div>
+</section>"""
+
+
 def home_page():
     facts = "".join(f"<li>{e(fact)}</li>" for fact in ABOUT["facts"])
+    programme = "".join(f"<li>{e(item)}</li>" for item in CONCERT["programme"])
+    soloists = "".join(f"<li>{e(item)}</li>" for item in CONCERT["soloists"])
+    board = "".join(f"<div><dt>{e(role)}</dt><dd>{e(name)}</dd></div>" for role, name in BOARD)
     content = f"""
-<section class="hero container">
+<section id="orquesta" class="hero container">
   <div class="hero-copy">
     <p class="kicker">Asker · música local</p>
-    <h1>Orquesta simple, cercana y viva.</h1>
+    <h1>Asker Symfoniorkester</h1>
     <p>{e(ABOUT['text'])}</p>
-    <div class="actions">{button('/konsert/', 'Ver concierto')}{button('/kontakt/', 'Contacto', 'secondary')}</div>
+    <div class="actions">{button('#concert', 'Concert')}{button('#contacto', 'Contacto', 'secondary')}</div>
   </div>
-  <img class="hero-image" src="{static_path(HERO_IMAGE['src'])}" alt="{e(HERO_IMAGE['alt'])}" width="{HERO_IMAGE['width']}" height="{HERO_IMAGE['height']}" fetchpriority="high">
+  {image_carousel()}
 </section>
-<section class="container summary-grid">
-  <article class="card">
-    <p class="kicker">Próximo concierto</p>
-    <h2>{e(CONCERT['title'])}</h2>
-    <p>{e(CONCERT['date'])} · kl. {e(CONCERT['time'])} · {e(CONCERT['venue'])}</p>
-    {button('/konsert/', 'Detalles')}
-  </article>
-  <article class="card light-card">
-    <p class="kicker">Resumen</p>
+<section class="container summary-grid intro-grid">
+  <article class="card color-card">
+    <p class="kicker">La orquesta</p>
     <h2>{e(ABOUT['title'])}</h2>
     <ul class="fact-list">{facts}</ul>
   </article>
+  <article class="card light-card">
+    <p class="kicker">Historia</p>
+    <h2>Desde 1972</h2>
+    <p>{e(ABOUT['history'])}</p>
+    <p>{e(ABOUT['salon'])}</p>
+  </article>
+</section>
+<section id="concert" class="container section-block concert-panel">
+  <div class="section-heading">
+    <p class="kicker">Concert</p>
+    <h2>{e(CONCERT['title'])}</h2>
+    <p>{e(CONCERT['description'])}</p>
+  </div>
+  <div class="summary-grid">
+    <article class="card"><h3>Información</h3><p><strong>{e(CONCERT['date'])}</strong><br>kl. {e(CONCERT['time'])}<br>{e(CONCERT['venue'])}<br>Dirigent: {e(CONCERT['conductor'])}</p>{button(CONCERT['ticket_url'], 'Comprar billetes')}</article>
+    <article class="card light-card"><h3>Programa</h3><ul>{programme}</ul><h3>Solistas</h3><ul>{soloists}</ul></article>
+  </div>
+</section>
+{videos_section()}
+<section id="unirse" class="container summary-grid section-block">
+  <article class="card color-card"><p class="kicker">Unirse</p><h2>¿Quieres tocar con nosotros?</h2><p>{e(JOIN_TEXT)}</p><p>{e(ABOUT['rehearsal'])}</p>{button('mailto:' + CONTACT_EMAIL + '?subject=Jeg%20vil%20bli%20med', 'Enviar e-mail')}</article>
+  <article id="contacto" class="card"><p class="kicker">Contacto</p><h2>Escríbenos</h2><p><a href="mailto:{e(CONTACT_EMAIL)}">{e(CONTACT_EMAIL)}</a></p><dl class="board-list">{board}</dl></article>
 </section>
 """
     return layout("Inicio", content, preload_image=True)
 
 
 def concert_page():
-    programme = "".join(f"<li>{e(item)}</li>" for item in CONCERT["programme"])
-    soloists = "".join(f"<li>{e(item)}</li>" for item in CONCERT["soloists"])
-    content = page_header("Concierto", CONCERT["title"], CONCERT["description"])
-    content += f"""<section class="container summary-grid">
-  <article class="card"><h2>Información</h2><p><strong>{e(CONCERT['date'])}</strong><br>kl. {e(CONCERT['time'])}<br>{e(CONCERT['venue'])}<br>Dirigent: {e(CONCERT['conductor'])}</p>{button(CONCERT['ticket_url'], 'Comprar billetes')}</article>
-  <article class="card light-card"><h2>Programa</h2><ul>{programme}</ul><h2>Solistas</h2><ul>{soloists}</ul></article>
-</section>"""
-    return layout("Concierto", content)
+    return home_page()
 
 
 def join_page():
-    content = page_header("Unirse", "¿Quieres tocar con nosotros?", JOIN_TEXT)
-    content += f'<section class="container one-card"><article class="card"><p>Ensayamos los martes en Asker. Envíanos un mensaje con tu instrumento y experiencia.</p>{button("mailto:" + CONTACT_EMAIL + "?subject=Jeg%20vil%20bli%20med", "Enviar e-mail")}</article></section>'
-    return layout("Unirse", content)
+    return home_page()
 
 
 def contact_page():
-    board = "".join(f"<div><dt>{e(role)}</dt><dd>{e(name)}</dd></div>" for role, name in BOARD)
-    content = page_header("Contacto", "Escríbenos", "Para preguntas sobre conciertos, colaboración o membresía.")
-    content += f'<section class="container summary-grid"><article class="card"><h2>Email</h2><p><a href="mailto:{e(CONTACT_EMAIL)}">{e(CONTACT_EMAIL)}</a></p>{button("mailto:" + CONTACT_EMAIL, "Enviar mensaje")}</article><article class="card light-card"><h2>Styret</h2><dl class="board-list">{board}</dl></article></section>'
-    return layout("Contacto", content)
+    return home_page()
 
 
 def not_found_page():
-    return layout("404", page_header("404", "Página no encontrada", "La dirección no existe.") + '<section class="container one-card"><a class="button" href="/">Volver al inicio</a></section>')
+    return layout("404", page_header("404", "Página no encontrada", "La dirección no existe.") + '<section class="container one-card"><a class="button" href="/#orquesta">Volver al inicio</a></section>')

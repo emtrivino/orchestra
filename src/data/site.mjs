@@ -1,6 +1,6 @@
 export const facebookUrl = "https://www.facebook.com/profile.php?id=100062928895060";
 export const ticketUrl = "https://checkout.ebillett.no/359/events/19/purchase/setup";
-export const contactEmail = "post@askersymfoniorkester.no";
+export const contactEmail = "leder@asym.no";
 export const basePath = "/orchestra";
 export const siteUrl = "https://emtrivino.github.io/orchestra";
 export const imageBaseUrl = "https://raw.githubusercontent.com/emtrivino/orchestra/main/public";
@@ -15,9 +15,9 @@ export const nav = [
 
 export const facts = [
   ["1972", "stiftet"],
-  ["35+", "musikere"],
-  ["5", "konserter i året"],
-  ["Asker", "lokalt forankret"],
+  ["ca. 35", "medlemmer"],
+  ["17–84", "år"],
+  ["Tirsdag", "øvelse"],
 ];
 
 export const frontImages = [
@@ -42,50 +42,58 @@ export const concerts = [
     date: "2026-06-07",
     time: "19.00",
     venue: "Østenstad kirke",
-    type: "Sommerkonsert",
+    type: "Neste konsert",
     conductor: "Carl Nilsen",
     ticketUrl,
     soloists: ["Aurora Sommerfeldt Floden, bratsj", "Eline Øverli Waaler, fløyte", "Linnea Line, piano", "Anja Møgedal Skjellestad, saxofon"],
     programme: ["Edvard Grieg: Peer Gynt Suite nr. 1 og 2", "Wolfgang Amadeus Mozart: Andante for fløyte og orkester", "Francis Poulenc: Klaverkonsert, 1. sats", "Kjell Marcussen: Pavane for bratsj og orkester", "Gabriel Pierné: Canzonetta for saxofon og orkester"],
-    desc: "Unge solister fra Asker kulturskole møter orkesteret i en lys konsert med Grieg, Mozart, Poulenc, Marcussen og Pierné.",
+    desc: "Unge solister fra Asker kulturskole møter orkesteret i Østenstad kirke. Billetter er tilgjengelige hos eBillett.",
     supporters: ["NASOL", "Sparebankstiftelsen DNB"],
   },
+];
+
+export const aboutSections = [
   {
-    slug: "hostkonsert-2026",
-    title: "Høstkonsert",
-    date: "2026-10-25",
-    time: "18.00",
-    venue: "Asker kulturhus",
-    type: "Symfonisk konsert",
-    conductor: "Carl Nilsen",
-    soloists: ["Solist annonseres"],
-    programme: ["Ludwig van Beethoven: Ouverture", "Jean Sibelius: Karelia-suite", "Nordisk verk annonseres"],
-    desc: "Nordiske farger og klassisk energi i et program for både kjente og nye lyttere.",
+    title: "Orkesteret",
+    text: [
+      "Asker Symfoniorkester er kommunens eneste symfoniorkester for unge og voksne amatørmusikere. Vi har ca. 35 medlemmer i alderen 17–84 år.",
+      "Siden oppstarten i 1972 har vi jobbet kontinuerlig for å berike det lokale musikkmiljøet. Visjonen er et helt liv med musikk, samhold på tvers av generasjoner og mestringsfølelse.",
+      "Vi skal være en møteplass og arena for musikalsk utvikling og inkluderende fellesskap for flere generasjoner av amatørmusikere.",
+    ],
   },
   {
-    slug: "julekonsert-2026",
-    title: "Julekonsert",
-    date: "2026-12-13",
-    time: "18.00",
-    venue: "Asker kirke",
-    type: "Julekonsert",
-    conductor: "Carl Nilsen",
-    soloists: ["Lokale gjester annonseres"],
-    programme: ["Tradisjonelle julesanger i orkesterdrakt", "Pjotr Tsjajkovskij: Utdrag fra Nøtteknekkeren", "Norsk julemusikk"],
-    desc: "En førjulskveld med kjente melodier, orkesterklang og rom for høytidens ro.",
+    title: "Musikken",
+    text: [
+      "Repertoaret spenner fra uroppførelser til klassiske verk fra den romantiske perioden.",
+      "Vi samarbeider ofte med unge solister fra Barratt Due, musikkhøyskolen, kor i regionen og Asker kulturskole.",
+      "Orkesteret engasjerer profesjonelle dirigenter for hvert prosjekt og støttes av Asker kommune.",
+    ],
   },
   {
-    slug: "varkonsert-2027",
-    title: "Vårkonsert",
-    date: "2027-03-21",
-    time: "18.00",
-    venue: "Venskaben, Asker",
-    type: "Kammerlig symfonisk",
-    conductor: "Carl Nilsen",
-    soloists: ["Solist annonseres"],
-    programme: ["Wolfgang Amadeus Mozart: Symfonisk verk", "Samtidsverk av nordisk komponist", "Edvard Grieg: Lyriske stykker i orkesterarrangement"],
-    desc: "Musikalsk fornyelse, elegante klassikere og lokalt orkesterfellesskap.",
+    title: "Prøver",
+    text: ["Vi øver hver tirsdag på Borgen ungdomsskole kl. 19.00–21.45.", "Kom gjerne innom en øvelse hvis du har spørsmål."],
   },
+  {
+    title: "Salongorkester",
+    text: [
+      "Asker Symfoniorkester har også sitt eget salongorkester.",
+      "Salongorkesteret løfter frem tradisjoner fra norske kafeer og restauranter, med wienerklassisk taffelmusikk, norske komponister og kapellmestrenes egne perler.",
+      "Publikum inviteres til en musikalsk reise tilbake til Cafeteaterets glade og elegante atmosfære, med både kjente klassiske stykker og overraskelser.",
+    ],
+  },
+  {
+    title: "Historie",
+    text: ["Asker Symfoniorkester ble startet i 1972. Orkesterets faste dirigent var i nesten 30 år fiolinisten, dirigenten og musikkskolerektoren Arne Hagen.", "Orkesterets første konsert var i 1973 på Tveter gård under ledelse av Arne Hagen."],
+  },
+];
+
+export const board = [
+  ["Leder", "Ingrid Dahl"],
+  ["Kasserer", "Anette Robsahm Røhmen"],
+  ["Styremedlem", "Kristina Øglænd Sveen"],
+  ["Styremedlem", "Marie Østensen"],
+  ["Styremedlem", "Steinar Hopland"],
+  ["Styremedlem", "Richard Blichfeldt"],
 ];
 
 export const news = [

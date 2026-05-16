@@ -1,96 +1,97 @@
-# Asker Symfoniorkester – GitHub Pages-ready website
+# Asker Symfoniorkester – static website
 
-A complete static website for **Asker Symfoniorkester** in Norwegian Bokmål. The site is generated with a dependency-free Node.js static generator and is configured to work from the GitHub Pages project URL:
-
-```text
-https://emtrivino.github.io/orchestra/
-```
-
-The build writes the full website to both `dist/` and `docs/`. Use `docs/` for GitHub Pages branch publishing. The recommended publishing mode is **Settings → Pages → Deploy from a branch → main → /docs**.
-
-## Publish from GitHub Pages in the browser only
-
-You do not need to run anything locally after this repository is updated and merged. In GitHub:
-
-1. Go to the repository **Settings**.
-2. Open **Pages**.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-4. Set **Branch** to **main**.
-5. Set **Folder** to **/docs**.
-6. Click **Save**.
-7. Open:
+Minimal, responsive website for **Asker Symfoniorkester**. The site is generated with a small dependency-free Node.js renderer and is ready for GitHub Pages from:
 
 ```text
 https://emtrivino.github.io/orchestra/
 ```
 
-## Local commands for maintainers
+The build writes the same static site to both `dist/` and `docs/`. GitHub Pages should publish from **main → /docs**.
 
-Install dependencies (there are no external runtime dependencies, but this verifies the npm project):
+## Project structure
+
+```text
+src/
+  data/site.mjs     # Main content: concerts, contact, board, about text, links, images
+  render.mjs        # HTML templates and page composition
+  styles.css        # Minimal 2026 visual design and responsive rules
+scripts/
+  build.mjs         # Builds dist/ and docs/
+  dev.mjs           # Local preview server
+  lint.mjs          # Lightweight render/SEO check
+public/
+  favicon.svg       # Site icon
+  images/           # Source image assets
+docs/               # Built GitHub Pages output
+dist/               # Local build output
+```
+
+## Local workflow
 
 ```bash
 npm install
-```
-
-Build the static site into `dist/` and `docs/`:
-
-```bash
-npm run build
-```
-
-Run the lightweight render/SEO lint check:
-
-```bash
 npm run lint
-```
-
-Run the local development server:
-
-```bash
+npm run build
 npm run dev
 ```
 
-Open:
+Open the local preview at:
 
 ```text
 http://localhost:3000
 ```
 
-## Where to edit content
+## How to update the most relevant content
 
-- `src/data/site.mjs` – navigation, GitHub Pages base path, site URL, contact email, concerts, frontpage image metadata, YouTube links, facts, news, repertoire, musician sections, partners, Facebook URL, and eBillett URL.
-- `src/render.mjs` – page templates, reusable rendering sections, localized internal links, frontpage image/video sections, and static mailto forms.
-- `src/styles.css` – 2026-style minimal visual identity, responsive layout, typography, image motion, cards, hero sections, forms, and mobile behavior.
-- `public/images/` – committed frontpage image assets copied into both `dist/images/` and `docs/images/` so GitHub Pages can serve them.
-- `public/favicon.svg` – favicon/logo mark.
+Most day-to-day changes happen in `src/data/site.mjs`.
 
-## Pages included
+### Next concert
 
-- Home
-- Konserter
-- Concert detail pages
-- Sesongen 2026/27
-- Om orkesteret
-- Musikere
-- Bli med
-- Repertoar
-- For medlemmer
-- Støtt oss
-- Aktuelt
-- Kontakt
+Edit the single object in `concerts`:
 
-## Contact forms
+- `title` – concert title shown on the home page and concert page.
+- `date`, `time`, `venue` – practical information.
+- `ticketUrl` – eBillett or external ticket link.
+- `soloists` and `programme` – lists shown on the concert detail page.
+- `desc` – short, mobile-friendly summary.
 
-The contact and recruitment forms are static and use a mailto fallback to:
+Only confirmed concerts with ticket information should be added. The concert overview intentionally stays simple and shows the next ticketed concert.
+
+### Contact and board
+
+Edit:
+
+- `contactEmail` for the main email address.
+- `board` for Leder, Kasserer and Styremedlemmer.
+
+The contact form is static and opens the visitor’s email program with a `mailto:` action.
+
+### About page
+
+Edit `aboutSections` for the orchestra description, rehearsals, salongorkester and history. Keep paragraphs short so the mobile page stays simple and ordered.
+
+### Front page images and videos
+
+Edit:
+
+- `frontImages` for image metadata and alt text.
+- `videos` for YouTube links embedded on the front page.
+
+## Design notes
+
+- The hero title is intentionally smaller than before so “Musikk som puster med byen.” works on desktop and mobile.
+- Mobile layout prioritizes: next concert, short orchestra summary, rehearsal info, contact and Facebook.
+- The visual style uses a white base, soft borders, minimal cards and restrained motion for a clean 2026 feel.
+
+## Publishing on GitHub Pages
+
+1. Go to repository **Settings**.
+2. Open **Pages**.
+3. Set **Source** to **Deploy from a branch**.
+4. Set **Branch** to **main**.
+5. Set **Folder** to **/docs**.
+6. Save and open:
 
 ```text
-post@askersymfoniorkester.no
+https://emtrivino.github.io/orchestra/
 ```
-
-## Recommended real content to add next
-
-- Optional replacement of the abstract committed frontpage assets with real orchestra photos.
-- Official logo and brand assets.
-- Confirmed future concert dates, programmes, venues, and eBillett URLs.
-- Musician names and board/administration roles.
-- Final partner/sponsor logos.
